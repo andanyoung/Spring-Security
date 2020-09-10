@@ -1,4 +1,4 @@
-package cn.andyoung.springsecurity.controller;
+package cn.andyoung.springsecurity.ssstart.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

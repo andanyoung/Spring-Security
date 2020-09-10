@@ -1,10 +1,10 @@
-package cn.andyoung.springsecurity;
+package cn.andyoung.springsecurity.ssstart;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringSecurityApplicationTests {
+class SsStartApplicationTests {
 
   @Test
   void contextLoads() {}

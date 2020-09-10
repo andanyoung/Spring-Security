@@ -1,4 +1,4 @@
-package cn.andyoung.springsecurity;
+package cn.andyoung.springsecurity.ssstart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
