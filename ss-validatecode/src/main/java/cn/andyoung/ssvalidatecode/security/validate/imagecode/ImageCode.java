@@ -1,4 +1,4 @@
-package cn.andyoung.ssvalidatecode.security.validate.code;
+package cn.andyoung.ssvalidatecode.security.validate.imagecode;
 
 import lombok.Data;
 

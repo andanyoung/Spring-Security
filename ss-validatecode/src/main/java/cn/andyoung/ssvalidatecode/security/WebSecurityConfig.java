@@ -2,7 +2,8 @@ package cn.andyoung.ssvalidatecode.security;
 
 import cn.andyoung.ssvalidatecode.security.handler.MyAuthenticationFailureHandler;
 import cn.andyoung.ssvalidatecode.security.handler.MyAuthenticationSuccessHandler;
-import cn.andyoung.ssvalidatecode.security.validate.ValidateCodeFilter;
+import cn.andyoung.ssvalidatecode.security.validate.imagecode.ValidateCodeFilter;
+import cn.andyoung.ssvalidatecode.security.validate.smscode.SmsCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +22,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired private ValidateCodeFilter validateCodeFilter;
 
+  @Autowired private SmsCodeFilter smsCodeFilter;
+
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 
-    http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+    http.addFilterBefore(
+            validateCodeFilter, UsernamePasswordAuthenticationFilter.class) // 添加验证码校验过滤器
+        .addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class) // 添加短信验证码校验过滤器
         .formLogin() // 表单登录
         // http.httpBasic() // HTTP Basic
         .loginPage("/authentication/require")
@@ -33,7 +38,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .failureHandler(authenticationFailureHandler)
         .and()
         .authorizeRequests() // 授权配置
-        .antMatchers("/authentication/require", "/login.html", "/code/image") // 登录跳转 URL 无需认证
+        .antMatchers(
+            "/authentication/require",
+            "/login.html",
+            "/smscode.html",
+            "/code/image",
+            "/code/sms") // 登录跳转 URL 无需认证
         .permitAll()
         .anyRequest() // 所有请求
         .authenticated() // 都需要认证

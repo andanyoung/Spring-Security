@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" action="/login/mobile" method="post">
+        <h2 class="form-signin-heading">Spring Security 添加图形验证码</h2>
+        <div class="form">
+            <h3>短信验证码登录</h3>
+            <p>
+                <input type="text" placeholder="手机号" name="mobile" value="17777777777" required="required"/>
+
+            </p>
+            <p>
+                <span style="display: inline">
+                    <input type="text" name="smsCode" placeholder="短信验证码" style="width: 50%;"/>
+                        <a href="/code/sms?mobile=17777777777">发送验证码</a>
+                </span>
+            </p>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+</div>
+</body>
+</html>

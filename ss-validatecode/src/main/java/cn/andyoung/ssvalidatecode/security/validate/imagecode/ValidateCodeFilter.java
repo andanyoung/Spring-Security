@@ -1,7 +1,6 @@
-package cn.andyoung.ssvalidatecode.security.validate;
+package cn.andyoung.ssvalidatecode.security.validate.imagecode;
 
 import cn.andyoung.ssvalidatecode.controller.ValidateController;
-import cn.andyoung.ssvalidatecode.security.validate.code.ImageCode;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;

@@ -1,6 +1,6 @@
 package cn.andyoung.ssvalidatecode.controller;
 
-import cn.andyoung.ssvalidatecode.security.validate.code.ImageCode;
+import cn.andyoung.ssvalidatecode.security.validate.imagecode.ImageCode;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.web.bind.annotation.GetMapping;

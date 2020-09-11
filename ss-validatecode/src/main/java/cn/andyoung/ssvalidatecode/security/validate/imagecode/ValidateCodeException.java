@@ -1,4 +1,4 @@
-package cn.andyoung.ssvalidatecode.security.validate;
+package cn.andyoung.ssvalidatecode.security.validate.imagecode;
 
 import org.springframework.security.core.AuthenticationException;
 
