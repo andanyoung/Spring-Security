@@ -1,8 +1,9 @@
-package cn.andyoung.ssvalidatecode.security;
+package cn.andyoung.ssvalidatemobile.security;
 
-import cn.andyoung.ssvalidatecode.security.handler.MyAuthenticationFailureHandler;
-import cn.andyoung.ssvalidatecode.security.handler.MyAuthenticationSuccessHandler;
-import cn.andyoung.ssvalidatecode.security.validate.imagecode.ValidateCodeFilter;
+import cn.andyoung.ssvalidatemobile.security.handler.MyAuthenticationFailureHandler;
+import cn.andyoung.ssvalidatemobile.security.handler.MyAuthenticationSuccessHandler;
+import cn.andyoung.ssvalidatemobile.security.validate.smscode.SmsAuthenticationConfig;
+import cn.andyoung.ssvalidatemobile.security.validate.smscode.SmsCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,13 +20,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired private MyAuthenticationFailureHandler authenticationFailureHandler;
 
-  @Autowired private ValidateCodeFilter validateCodeFilter;
+  @Autowired private SmsCodeFilter smsCodeFilter;
+
+  @Autowired private SmsAuthenticationConfig smsAuthenticationConfig;
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 
-    http.addFilterBefore(
-            validateCodeFilter, UsernamePasswordAuthenticationFilter.class) // 添加验证码校验过滤器
+    http.addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class) // 添加短信验证码校验过滤器
         .formLogin() // 表单登录
         // http.httpBasic() // HTTP Basic
         .loginPage("/authentication/require")
@@ -35,13 +37,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .authorizeRequests() // 授权配置
         .antMatchers(
-            "/authentication/require", "/login.html", "/code/image", "/code/sms") // 登录跳转 URL 无需认证
+            "/authentication/require", "/smscode.html", "/code/image", "/code/sms") // 登录跳转 URL 无需认证
         .permitAll()
         .anyRequest() // 所有请求
         .authenticated() // 都需要认证
         .and()
         .csrf()
-        .disable();
+        .disable()
+        .apply(smsAuthenticationConfig); // 将短信验证码认证配置加到 Spring Security 中;
   }
 
   // 密码的加密方式

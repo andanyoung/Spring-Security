@@ -1,6 +1,6 @@
-package cn.andyoung.ssvalidatecode.security.validate.smscode;
+package cn.andyoung.ssvalidatemobile.security.validate.smscode;
 
-import cn.andyoung.ssvalidatecode.security.UserDetailService;
+import cn.andyoung.ssvalidatemobile.security.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;

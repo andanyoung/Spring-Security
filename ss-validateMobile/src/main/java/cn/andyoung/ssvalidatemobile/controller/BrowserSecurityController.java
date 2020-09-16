@@ -1,4 +1,4 @@
-package cn.andyoung.ssvalidatecode.controller;
+package cn.andyoung.ssvalidatemobile.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -20,7 +20,6 @@ public class BrowserSecurityController {
   private RequestCache requestCache = new HttpSessionRequestCache();
   private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
-  // 认证失败
   @GetMapping("/authentication/require")
   @ResponseStatus(HttpStatus.UNAUTHORIZED)
   public String requireAuthentication(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +29,7 @@ public class BrowserSecurityController {
       String targetUrl = savedRequest.getRedirectUrl();
       System.out.println(targetUrl);
       if (StringUtils.endsWithIgnoreCase(targetUrl, ".html"))
-        redirectStrategy.sendRedirect(request, response, "/login.html");
+        redirectStrategy.sendRedirect(request, response, "/smscode.html");
     }
     return "访问的资源需要身份认证！";
   }

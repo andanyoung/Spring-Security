@@ -6,6 +6,8 @@
     <modules>
         <module>ss-authentication</module>
         <module>ss-validatecode</module>
+        <module>ss-start</module>
+        <module>ss-validateMobile</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

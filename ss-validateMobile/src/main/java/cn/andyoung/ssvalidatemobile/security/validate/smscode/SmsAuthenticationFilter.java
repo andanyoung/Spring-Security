@@ -1,4 +1,4 @@
-package cn.andyoung.ssvalidatecode.security.validate.smscode;
+package cn.andyoung.ssvalidatemobile.security.validate.smscode;
 
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;

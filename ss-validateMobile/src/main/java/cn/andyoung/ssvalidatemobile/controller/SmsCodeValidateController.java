@@ -1,6 +1,6 @@
-package cn.andyoung.ssvalidatecode.controller;
+package cn.andyoung.ssvalidatemobile.controller;
 
-import cn.andyoung.ssvalidatecode.security.validate.smscode.SmsCode;
+import cn.andyoung.ssvalidatemobile.security.validate.smscode.SmsCode;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;

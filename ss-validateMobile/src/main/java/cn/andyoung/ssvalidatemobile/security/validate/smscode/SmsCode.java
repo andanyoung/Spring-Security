@@ -1,4 +1,4 @@
-package cn.andyoung.ssvalidatecode.security.validate.smscode;
+package cn.andyoung.ssvalidatemobile.security.validate.smscode;
 
 import lombok.Data;
 

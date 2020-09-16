@@ -1,7 +1,7 @@
-package cn.andyoung.ssvalidatecode.security.validate.smscode;
+package cn.andyoung.ssvalidatemobile.security.validate.smscode;
 
-import cn.andyoung.ssvalidatecode.controller.SmsCodeValidateController;
-import cn.andyoung.ssvalidatecode.security.validate.imagecode.ValidateCodeException;
+import cn.andyoung.ssvalidatemobile.controller.SmsCodeValidateController;
+import cn.andyoung.ssvalidatemobile.security.validate.imagecode.ValidateCodeException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -31,7 +31,7 @@ public class SmsCodeFilter extends OncePerRequestFilter {
       HttpServletResponse httpServletResponse,
       FilterChain filterChain)
       throws ServletException, IOException {
-    if (StringUtils.equalsIgnoreCase("/login/mobile", httpServletRequest.getRequestURI())
+    if (StringUtils.equalsIgnoreCase("/login", httpServletRequest.getRequestURI())
         && StringUtils.equalsIgnoreCase(httpServletRequest.getMethod(), "post")) {
       try {
         validateSmsCode(new ServletWebRequest(httpServletRequest));
