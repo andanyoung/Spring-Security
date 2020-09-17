@@ -17,6 +17,7 @@ public class SmsAuthenticationFilter extends AbstractAuthenticationProcessingFil
   private String mobileParameter = MOBILE_KEY;
   private boolean postOnly = true;
 
+  // 这里 根据AntPathRequestMatcher 匹配 请求的url 来决定是否需要出来该请求
   public SmsAuthenticationFilter() {
     super(new AntPathRequestMatcher("/login/mobile", "POST"));
   }
