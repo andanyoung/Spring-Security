@@ -12,21 +12,22 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin" action="/login" method="post">
+    <form class="form-signin" method="post" action="/login">
         <h2 class="form-signin-heading">Spring Security 添加图形验证码</h2>
-        <div class="form">
-            <h3>短信验证码登录</h3>
-            <p>
-                <input type="text" placeholder="手机号" name="mobile" value="17777777777" required="required"/>
-
-            </p>
-            <p>
-                <span style="display: inline">
-                    <input type="text" name="smsCode" placeholder="短信验证码" style="width: 50%;"/>
-                        <a href="/code/sms?mobile=17777777777">发送验证码</a>
-                </span>
-            </p>
-        </div>
+        <p>
+            <label for="username" class="sr-only">用户名</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="用户名" required
+                   autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">密码</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="密码" required>
+        </p>
+        <p style="display: inline">
+            <input type="text" name="imageCode" placeholder="验证码" style="width: 50%;"/>
+            <img src="/code/image"/>
+        </p>
+        <p><input type="checkbox" name="remember-me"/> 记住我</p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
     </form>
 </div>
