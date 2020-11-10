@@ -9,6 +9,7 @@
         <module>ss-start</module>
         <module>ss-validateMobile</module>
         <module>ss-rememberMe</module>
+        <module>ss-jwt</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

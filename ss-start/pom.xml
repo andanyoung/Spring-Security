@@ -7,7 +7,6 @@
         <groupId>cn.andyoung</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>cn.andyoung.spring-security</groupId>
     <artifactId>ss-start</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ss-start</name>
